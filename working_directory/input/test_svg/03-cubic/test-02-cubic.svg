@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="no"?>
+<svg
+viewBox="0 0 1024 1024"
+xmlns:xlink="http://www.w3.org/1999/xlink"
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:cc="http://creativecommons.org/ns#"
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:svg="http://www.w3.org/2000/svg"
+xmlns="http://www.w3.org/2000/svg"
+version="1.1">
+  <g>
+
+    <!-- cubic curve -->
+    <g transform="translate(100,400)">
+      <path id="p5" fill-rule="evenodd" stroke="none" fill="rgb(255,127,0)" d="M 50,0 C 100,50 100,100 50,150 0,100 0,50 50,0"/>
+    </g>
+
+    <g transform="translate(250,400)">
+      <path id="p5" fill-rule="evenodd" stroke="none" fill="rgb(255,0,127)" d="M 50,0 C 100,0 100,100 50,150 0,100 0,0 50,0"/>
+    </g>
+
+  </g>
+</svg>

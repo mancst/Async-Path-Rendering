@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<svg
+viewBox="0 0 1024 1024"
+xmlns:xlink="http://www.w3.org/1999/xlink"
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:cc="http://creativecommons.org/ns#"
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:svg="http://www.w3.org/2000/svg"
+xmlns="http://www.w3.org/2000/svg"
+version="1.1">
+  <g>
+  
+    <!-- quadratric curve -->
+    <g transform="translate(100,101)">
+      <path id="Q1" fill-rule="evenodd" stroke="none" fill="rgb(0,255,255)" d="M 0,50 Q 50,0 100,50 50,100, 0,50"/>
+    </g>
+	
+  </g>
+</svg>

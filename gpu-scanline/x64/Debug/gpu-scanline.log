@@ -1,0 +1,50 @@
+﻿生成启动时间为 2017/12/13 19:14:23。
+     1>项目“E:\llj\code\Vector Graph Rander\code-experiment\code\gpu-scanline\gpu-scanline.vcxproj”在节点 2 上(Build 个目标)。
+     1>AddCudaCompileDeps:
+         D:\vs2013\VC\bin\x86_amd64\cl.exe /E /nologo /showIncludes /TP /D__CUDACC__ /D_DEBUG /D_CONSOLE /D_UNICODE /DUNICODE /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include" /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\bin" /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include" /I. /FIcuda_runtime.h /c "E:\llj\code\Vector Graph Rander\code-experiment\code\gpu-scanline\src\rasterizer\kernel\animation.cu" 
+     1>项目“E:\llj\code\Vector Graph Rander\code-experiment\code\gpu-scanline\gpu-scanline.vcxproj”(1)正在节点 2 上生成“E:\llj\code\Vector Graph Rander\code-experiment\code\gpu-scanline\gpu-scanline.vcxproj”(1:2) (CudaBuildCore 个目标)。
+     1>CudaBuildCore:
+         Compiling CUDA source file src\rasterizer\kernel\animation.cu...
+         cmd.exe /C "C:\Users\Administrator\AppData\Local\Temp\tmpa6f6dc4786884ba184a3667cbf98d464.cmd"
+         "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" -gencode=arch=compute_50,code=\"sm_50,compute_50\" --use-local-env --cl-version 2013 -ccbin "D:\vs2013\VC\bin\x86_amd64"  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include"  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static -Xcompiler "/wd 4819" -g   -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MDd " -o x64\Debug\animation.cu.obj "E:\llj\code\Vector Graph Rander\code-experiment\code\gpu-scanline\src\rasterizer\kernel\animation.cu"
+         
+         E:\llj\code\Vector Graph Rander\code-experiment\code\gpu-scanline>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" -gencode=arch=compute_50,code=\"sm_50,compute_50\" --use-local-env --cl-version 2013 -ccbin "D:\vs2013\VC\bin\x86_amd64"  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include"  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static -Xcompiler "/wd 4819" -g   -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MDd " -o x64\Debug\animation.cu.obj "E:\llj\code\Vector Graph Rander\code-experiment\code\gpu-scanline\src\rasterizer\kernel\animation.cu" 
+     1>CUDACOMPILE : nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+         animation.cu
+     1>已完成生成项目“E:\llj\code\Vector Graph Rander\code-experiment\code\gpu-scanline\gpu-scanline.vcxproj”(CudaBuildCore 个目标)的操作。
+     1>Link:
+         D:\vs2013\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"E:\llj\code\Vector Graph Rander\code-experiment\code\x64\Debug\gpu-scanline.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\lib\x64" opengl32.lib glu32.lib SDL2.lib SDL2main.lib cudart.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\llj\code\Vector Graph Rander\code-experiment\code\x64\Debug\gpu-scanline.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\llj\code\Vector Graph Rander\code-experiment\code\x64\Debug\gpu-scanline.lib" /MACHINE:X64 x64\Debug\animation.cu.obj
+         x64\Debug\ras_cut_mask_comb_scanline.cu.obj
+         x64\Debug\ras_qm_mask.cu.obj
+         x64\Debug\cuda_sort.cu.obj
+         x64\Debug\ras_base.cu.obj
+         x64\Debug\ras_cut.cu.obj
+         x64\Debug\thrust_impl_scan.cu.obj
+         x64\Debug\bezier_curve.obj
+         x64\Debug\config.obj
+         x64\Debug\ras_cut_mask_comb_scanline.obj
+         x64\Debug\text_util.obj
+         x64\Debug\vg_config.obj
+         x64\Debug\cuda_cached_allocator.obj
+         x64\Debug\gl_4_5_compatibility.obj
+         x64\Debug\stb_impl.obj
+         x64\Debug\bitmap.obj
+         x64\Debug\camera_3d.obj
+         x64\Debug\camera_controller_3d.obj
+         x64\Debug\file.obj
+         x64\Debug\glgui.obj
+         x64\Debug\glpp.obj
+         x64\Debug\ras_base.obj
+         x64\Debug\rvg.obj
+         x64\Debug\rvg_loader.obj
+         x64\Debug\svg.obj
+         x64\Debug\svg_load.obj
+         x64\Debug\svg_loader.obj
+         x64\Debug\vg_main.obj
+         x64\Debug\vg_container.obj
+         gpu-scanline.vcxproj -> E:\llj\code\Vector Graph Rander\code-experiment\code\x64\Debug\gpu-scanline.exe
+     1>已完成生成项目“E:\llj\code\Vector Graph Rander\code-experiment\code\gpu-scanline\gpu-scanline.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:16.42

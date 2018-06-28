@@ -1,0 +1,158 @@
+<?xml version="1.0" standalone="no"?>
+<svg
+viewBox="0 0 1024 1024"
+xmlns:xlink="http://www.w3.org/1999/xlink"
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:cc="http://creativecommons.org/ns#"
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:svg="http://www.w3.org/2000/svg"
+xmlns="http://www.w3.org/2000/svg"
+version="1.1">
+  <g>
+
+    <!-- 
+		Group 1
+	-->
+
+    <!-- line 0 -->
+    <g transform="translate(10, 10)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 4,0 L 4,4 L 0,4 L 0,0 "/>
+    </g>
+
+    <g transform="translate(20.5, 10)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 4,0 L 4,4 L 0,4 L 0,0 "/>
+    </g>
+
+    <g transform="translate(31, 10)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 4,0 L 4,4 L 0,4 L 0,0 "/>
+    </g>
+
+    <g transform="translate(41.5, 10)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 4,0 L 4,4 L 0,4 L 0,0 "/>
+    </g>
+
+    <!-- line 0 -->
+    <g transform="translate(10, 20.5)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 4,0 L 4,4 L 0,4 L 0,0 "/>
+    </g>
+
+    <g transform="translate(20.5, 20.5)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 4,0 L 4,4 L 0,4 L 0,0 "/>
+    </g>
+
+    <g transform="translate(31, 20.5)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 4,0 L 4,4 L 0,4 L 0,0 "/>
+    </g>
+
+    <g transform="translate(41.5, 20.5)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 4,0 L 4,4 L 0,4 L 0,0 "/>
+    </g>
+
+    <!-- line 0 -->
+    <g transform="translate(10, 31)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 4,0 L 4,4 L 0,4 L 0,0 "/>
+    </g>
+
+    <g transform="translate(20.5, 31)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 4,0 L 4,4 L 0,4 L 0,0 "/>
+    </g>
+
+    <g transform="translate(31, 31)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 4,0 L 4,4 L 0,4 L 0,0 "/>
+    </g>
+
+    <g transform="translate(41.5, 31)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 4,0 L 4,4 L 0,4 L 0,0 "/>
+    </g>
+
+    <!-- line 4 -->
+    <g transform="translate(10, 41.5)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 4,0 L 4,4 L 0,4 L 0,0 "/>
+    </g>
+
+    <g transform="translate(20.5, 41.5)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 4,0 L 4,4 L 0,4 L 0,0 "/>
+    </g>
+
+    <g transform="translate(31, 41.5)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 4,0 L 4,4 L 0,4 L 0,0 "/>
+    </g>
+
+    <g transform="translate(41.5, 41.5)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 4,0 L 4,4 L 0,4 L 0,0 "/>
+    </g>
+
+    <!-- 
+		Group 2
+	-->
+
+    <!-- line 0 -->
+    <g transform="translate(110, 110)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 0,4 L 4,4 L 4,0 L 0,0 "/>
+    </g>
+
+    <g transform="translate(120.5, 110)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 0,4 L 4,4 L 4,0 L 0,0 "/>
+    </g>
+
+    <g transform="translate(131, 110)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 0,4 L 4,4 L 4,0 L 0,0 "/>
+    </g>
+
+    <g transform="translate(141.5, 110)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 0,4 L 4,4 L 4,0 L 0,0 "/>
+    </g>
+
+    <!-- line 0 -->
+    <g transform="translate(110, 120.5)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 0,4 L 4,4 L 4,0 L 0,0 "/>
+    </g>
+
+    <g transform="translate(120.5, 120.5)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 0,4 L 4,4 L 4,0 L 0,0 "/>
+    </g>
+
+    <g transform="translate(131, 120.5)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 0,4 L 4,4 L 4,0 L 0,0 "/>
+    </g>
+
+    <g transform="translate(141.5, 120.5)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 0,4 L 4,4 L 4,0 L 0,0 "/>
+    </g>
+
+    <!-- line 0 -->
+    <g transform="translate(110, 131)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 0,4 L 4,4 L 4,0 L 0,0 "/>
+    </g>
+
+    <g transform="translate(120.5, 131)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 0,4 L 4,4 L 4,0 L 0,0 "/>
+    </g>
+
+    <g transform="translate(131, 131)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 0,4 L 4,4 L 4,0 L 0,0 "/>
+    </g>
+
+    <g transform="translate(141.5, 131)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 0,4 L 4,4 L 4,0 L 0,0 "/>
+    </g>
+
+    <!-- line 4 -->
+    <g transform="translate(110, 141.5)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 0,4 L 4,4 L 4,0 L 0,0 "/>
+    </g>
+
+    <g transform="translate(120.5, 141.5)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 0,4 L 4,4 L 4,0 L 0,0 "/>
+    </g>
+
+    <g transform="translate(131, 141.5)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 0,4 L 4,4 L 4,0 L 0,0 "/>
+    </g>
+
+    <g transform="translate(141.5, 141.5)">
+      <path id="L1" fill-rule="nonzero" stroke="none" fill="rgb(255,0,0)" d="M 0,0 L 0,4 L 4,4 L 4,0 L 0,0 "/>
+    </g>
+
+  </g>
+</svg>

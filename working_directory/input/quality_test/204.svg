@@ -1,0 +1,55 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 200 200">
+<g transform = "scale(1,-1) translate(0,-200)">
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 0.000000 Q 0.000000 2.000000 0.000000 4.000000 L 0.000000 0.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 4.000000 Q 0.080000 6.000000 0.000000 8.000000 L 0.000000 4.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 8.000000 Q 0.160000 10.000000 0.000000 12.000000 L 0.000000 8.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 12.000000 Q 0.240000 14.000000 0.000000 16.000000 L 0.000000 12.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 16.000000 Q 0.320000 18.000000 0.000000 20.000000 L 0.000000 16.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 20.000000 Q 0.400000 22.000000 0.000000 24.000000 L 0.000000 20.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 24.000000 Q 0.480000 26.000000 0.000000 28.000000 L 0.000000 24.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 28.000000 Q 0.560000 30.000000 0.000000 32.000000 L 0.000000 28.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 32.000000 Q 0.640000 34.000000 0.000000 36.000000 L 0.000000 32.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 36.000000 Q 0.720000 38.000000 0.000000 40.000000 L 0.000000 36.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 40.000000 Q 0.800000 42.000000 0.000000 44.000000 L 0.000000 40.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 44.000000 Q 0.880000 46.000000 0.000000 48.000000 L 0.000000 44.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 48.000000 Q 0.960000 50.000000 0.000000 52.000000 L 0.000000 48.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 52.000000 Q 1.040000 54.000000 0.000000 56.000000 L 0.000000 52.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 56.000000 Q 1.120000 58.000000 0.000000 60.000000 L 0.000000 56.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 60.000000 Q 1.200000 62.000000 0.000000 64.000000 L 0.000000 60.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 64.000000 Q 1.280000 66.000000 0.000000 68.000000 L 0.000000 64.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 68.000000 Q 1.360000 70.000000 0.000000 72.000000 L 0.000000 68.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 72.000000 Q 1.440000 74.000000 0.000000 76.000000 L 0.000000 72.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 76.000000 Q 1.520000 78.000000 0.000000 80.000000 L 0.000000 76.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 80.000000 Q 1.600000 82.000000 0.000000 84.000000 L 0.000000 80.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 84.000000 Q 1.680000 86.000000 0.000000 88.000000 L 0.000000 84.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 88.000000 Q 1.760000 90.000000 0.000000 92.000000 L 0.000000 88.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 92.000000 Q 1.840000 94.000000 0.000000 96.000000 L 0.000000 92.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 96.000000 Q 1.920000 98.000000 0.000000 100.000000 L 0.000000 96.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 100.000000 Q 2.000000 102.000000 0.000000 104.000000 L 0.000000 100.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 104.000000 Q 2.080000 106.000000 0.000000 108.000000 L 0.000000 104.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 108.000000 Q 2.160000 110.000000 0.000000 112.000000 L 0.000000 108.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 112.000000 Q 2.240000 114.000000 0.000000 116.000000 L 0.000000 112.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 116.000000 Q 2.320000 118.000000 0.000000 120.000000 L 0.000000 116.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 120.000000 Q 2.400000 122.000000 0.000000 124.000000 L 0.000000 120.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 124.000000 Q 2.480000 126.000000 0.000000 128.000000 L 0.000000 124.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 128.000000 Q 2.560000 130.000000 0.000000 132.000000 L 0.000000 128.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 132.000000 Q 2.640000 134.000000 0.000000 136.000000 L 0.000000 132.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 136.000000 Q 2.720000 138.000000 0.000000 140.000000 L 0.000000 136.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 140.000000 Q 2.800000 142.000000 0.000000 144.000000 L 0.000000 140.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 144.000000 Q 2.880000 146.000000 0.000000 148.000000 L 0.000000 144.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 148.000000 Q 2.960000 150.000000 0.000000 152.000000 L 0.000000 148.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 152.000000 Q 3.040000 154.000000 0.000000 156.000000 L 0.000000 152.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 156.000000 Q 3.120000 158.000000 0.000000 160.000000 L 0.000000 156.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 160.000000 Q 3.200000 162.000000 0.000000 164.000000 L 0.000000 160.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 164.000000 Q 3.280000 166.000000 0.000000 168.000000 L 0.000000 164.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 168.000000 Q 3.360000 170.000000 0.000000 172.000000 L 0.000000 168.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 172.000000 Q 3.440000 174.000000 0.000000 176.000000 L 0.000000 172.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 176.000000 Q 3.520000 178.000000 0.000000 180.000000 L 0.000000 176.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 180.000000 Q 3.600000 182.000000 0.000000 184.000000 L 0.000000 180.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 184.000000 Q 3.680000 186.000000 0.000000 188.000000 L 0.000000 184.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 188.000000 Q 3.760000 190.000000 0.000000 192.000000 L 0.000000 188.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 192.000000 Q 3.840000 194.000000 0.000000 196.000000 L 0.000000 192.000000 Z "/>
+  <path fill-rule="nonzero" fill="rgb(255,0,0)" fill-opacity="1.000000" color-interpolation="linearRGB" d="M 0.000000 196.000000 Q 3.920000 198.000000 0.000000 200.000000 L 0.000000 196.000000 Z "/>
+</g>
+</svg>
