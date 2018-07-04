@@ -1,12 +1,10 @@
-# Efficient GPU Path Rendering Using Scanline Rasterization
-
-SIGGRAPH Asia 2016 project.
+# An asynchronous path rendering based on pixel-grained subdivision, high-efficient intersection location and customized winding number computation
 
 ## Pre-built Binary 
 
 ./x64/release/gpu-scanline.exe. Tested on 64 bit Windows 10. Copy to ./working_directory to run. <br/>
 Built with Visual Studio 2013 and CUDA 7.5. <br/>
-Requires a NVIDIA graphics card with CUDA sm_50 and OpenGL 4.5 support.
+Requires a NVIDIA graphics card with CUDA sm_60 and DirectX 12 support.
 
 Right button: move. <br/>
 Mouse wheel: scale. <br/>
@@ -16,7 +14,6 @@ Left button: draw.
 
 * Visual Studio 2013/2015
 * CUDA 7.5/8.0, lower versions may work as well.
-* Thrust
 
 ----
 Open source code and pre-built binaries included in /3rd
