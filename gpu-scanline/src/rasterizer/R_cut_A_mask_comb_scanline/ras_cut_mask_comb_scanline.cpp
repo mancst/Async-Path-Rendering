@@ -14,6 +14,70 @@
 
 #define NO_GL_EXT
 
+/*
+//DX12
+#include <SDKDDKVer.h>
+//#define WIN32_LEAN_AND_MEAN // 从 Windows 头中排除极少使用的资料
+#include <windows.h>
+#include <tchar.h>
+//添加WTL支持 方便使用COM
+#include <wrl.h>
+using namespace Microsoft;
+using namespace Microsoft::WRL; 
+
+#include <dxgi1_6.h>
+
+using namespace DirectX;
+
+#include <DirectXMath.h>
+
+
+//for d3d12
+#include <d3d12.h>
+#include <d3d12shader.h>
+#include <d3dcompiler.h>
+
+//linker
+#pragma comment(lib, "dxguid.lib")
+#pragma comment(lib, "dxgi.lib")
+#pragma comment(lib, "d3d12.lib")
+#pragma comment(lib, "d3dcompiler.lib") 
+#if defined(_DEBUG)
+#include <dxgidebug.h>
+#endif 
+#include "..\WindowsCommons\d3dx12.h" 
+#define GRS_WND_CLASS_NAME _T("Game Window Class")
+#define GRS_WND_TITLE	_T("DirectX12 Trigger Sample") 
+#define GRS_THROW_IF_FAILED(hr) if (FAILED(hr)){ throw CGRSCOMException(hr); } 
+
+
+class CGRSCOMException
+{
+public:	
+	CGRSCOMException(HRESULT hr) : m_hrError(hr)	
+	{
+	}	
+		HRESULT Error() const	
+		{		
+			return m_hrError;	
+		}
+private:	
+	const HRESULT m_hrError;
+}; 
+struct GRS_VERTEX{	
+	XMFLOAT3 position;	
+	XMFLOAT4 color;
+}; 
+LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
+*/
+
+// InterlockedCompareExchange returns the object's value if the 
+// comparison fails.  If it is already 0, then its value won't 
+// change and 0 will be returned.
+#define InterlockedGetValue(object) InterlockedCompareExchange(object, 0, 0)
+
+
+
 namespace Mochimazui {
 
 namespace Rasterizer_R_Cut_A_Mask_Comb_Scanline {
@@ -227,6 +291,8 @@ void VGRasterizer::addVg(const VGContainer &vgc) {
 		unifyCurveVertexOrder();
 	}
 }
+
+
 
 int tiger_transform_x = 170;
 int tiger_transform_y = -150;

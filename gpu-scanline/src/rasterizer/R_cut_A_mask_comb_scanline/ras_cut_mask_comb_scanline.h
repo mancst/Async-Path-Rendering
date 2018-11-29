@@ -13,6 +13,80 @@
 #include "mochimazui/glpp.h"
 #include "mochimazui/cuda_array.h"
 
+#include <windows.h>
+
+#include <dxgi1_4.h>
+#include <d3d12.h>
+#include <D3Dcompiler.h>
+#include <DirectXMath.h>
+#include "d3d12/d3dx12.h"
+#include <d3d12/pix3Runtime/pix3.h>
+
+#include <wrl.h>
+#include <vector>
+#include <shellapi.h>
+
+using namespace DirectX;
+
+using Microsoft::WRL::ComPtr;
+
+/*
+// DX12
+#include <SDKDDKVer.h>
+#define WIN32_LEAN_AND_MEAN // 从 Windows 头中排除极少使用的资料
+#include <windows.h>
+#include <WinUser.h>
+#include <tchar.h>
+//添加WTL支持 方便使用COM
+#include <wrl.h>
+using namespace Microsoft;
+using namespace Microsoft::WRL;
+#include <dxgi1_6.h>
+#include <DirectXMath.h>
+using namespace DirectX;
+//for d3d12
+#include <d3d12.h>
+#include <d3d12shader.h>
+#include <d3dcompiler.h>
+//linker
+#pragma comment(lib, "dxguid.lib")
+#pragma comment(lib, "dxgi.lib")
+#pragma comment(lib, "d3d12.lib")
+#pragma comment(lib, "d3dcompiler.lib")
+
+#if defined(_DEBUG)
+#include <dxgidebug.h>
+#endif
+
+#include "..\WindowsCommons\d3dx12.h"
+
+#define GRS_WND_CLASS_NAME _T("Game Windows Clss")
+#define GRS_WND_TITLE   _T()("DirectX12 Trigger Sample")
+
+#define GRS_THROW_IF_FAILED(hr) if (FAILED(hr)){ throw CGRSCOMException(hr); }
+
+class CGRSCOMException
+{ 
+public:	
+	CGRSCOMException(HRESULT hr) : m_hrError(hr)	
+	{	
+	}
+	HRESULT Error() const	
+	{ 
+		return m_hrError; 
+	}
+private:	const HRESULT m_hrError; 
+};
+
+
+struct GRS_VERTEX
+
+{
+	XMFLOAT3 position;
+	XMFLOAT4 color;
+};
+*/
+
 namespace Mochimazui {
 
 class VGContainer;
@@ -59,6 +133,11 @@ private:
 
 	template <int FRAG_SIZE>
 	void rasterizeImpl();
+
+	static const UINT FrameCount = 2;
+	static const UINT ThreadCount = 1;
+	static const UINT ParticleCount = 10000;        // The number of particles in the n-body simulation.
+
 
 protected:
 

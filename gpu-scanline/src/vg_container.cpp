@@ -336,7 +336,7 @@ void VGContainer::reduceDegenerate() {
 }
 
 void VGContainer::mergeAdjacentPath() {
-#if 1
+
 
 	for (int i = 0; i + 1 < path.contourIndex.size();) {
 		int j = i + 1;
@@ -359,26 +359,25 @@ void VGContainer::mergeAdjacentPath() {
 			path.svgString[i] += " Z " + path.svgString[k];
 		}
 
-		path.contourIndex.erase(path.contourIndex.begin() + j, path.contourIndex.begin() + j);
-		path.contourNumber.erase(path.contourNumber.begin() + j, path.contourNumber.begin() + j);
+		path.contourIndex.erase(path.contourIndex.begin() + i + 1, path.contourIndex.begin() + j);
+		path.contourNumber.erase(path.contourNumber.begin() + i + 1, path.contourNumber.begin() + j);
 
-		path.fillType.erase(path.fillType.begin() + j, path.fillType.begin() + j);
-		path.fillRule.erase(path.fillRule.begin() + j, path.fillRule.begin() + j);
-		path.fillColor.erase(path.fillColor.begin() + j, path.fillColor.begin() + j);
-		path.fillIndex.erase(path.fillIndex.begin() + j, path.fillIndex.begin() + j);
-		path.fillOpacity.erase(path.fillOpacity.begin() + j, path.fillOpacity.begin() + j);
+		path.fillType.erase(path.fillType.begin() + i + 1, path.fillType.begin() + j);
+		path.fillRule.erase(path.fillRule.begin() + i + 1, path.fillRule.begin() + j);
+		path.fillColor.erase(path.fillColor.begin() + i + 1, path.fillColor.begin() + j);
+		path.fillIndex.erase(path.fillIndex.begin() + i + 1, path.fillIndex.begin() + j);
+		path.fillOpacity.erase(path.fillOpacity.begin() + i + 1, path.fillOpacity.begin() + j);
 
-		path.strokeType.erase(path.strokeType.begin() + j, path.strokeType.begin() + j);
-		path.strokeColor.erase(path.strokeColor.begin() + j, path.strokeColor.begin() + j);
-		path.strokeIndex.erase(path.strokeIndex.begin() + j, path.strokeIndex.begin() + j);
+		path.strokeType.erase(path.strokeType.begin() + i + 1, path.strokeType.begin() + j);
+		path.strokeColor.erase(path.strokeColor.begin() + i + 1, path.strokeColor.begin() + j);
+		path.strokeIndex.erase(path.strokeIndex.begin() + i + 1, path.strokeIndex.begin() + j);
 
 		//path.gradientIndex.erase(path.gradientIndex.begin() + i + 1);
-		path.gradientHref.erase(path.gradientHref.begin() + j, path.gradientHref.begin() + j);
-		path.svgString.erase(path.svgString.begin() + j, path.svgString.begin() + j);
+		path.gradientHref.erase(path.gradientHref.begin() + i + 1, path.gradientHref.begin() + j);
+		path.svgString.erase(path.svgString.begin() + i + 1, path.svgString.begin() + j);
 
 		++i;
 	}
-#endif
 }
 
 // -------- -------- -------- -------- -------- -------- -------- --------

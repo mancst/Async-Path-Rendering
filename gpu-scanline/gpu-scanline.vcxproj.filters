@@ -65,6 +65,12 @@
     <Filter Include="src\mordern_gpu\include\device">
       <UniqueIdentifier>{dcf3510b-ce26-400c-b19a-1843095d8f72}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\d3d12">
+      <UniqueIdentifier>{76d0e41c-25f8-4e60-b820-a33d3d3bc2c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\d3d12\pix3Runtime">
+      <UniqueIdentifier>{75bc1c67-2d02-4eef-96d3-214255e69c93}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\vg_main.cpp">
@@ -132,6 +138,12 @@
     </ClCompile>
     <ClCompile Include="src\text_util.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\DXSample.cpp">
+      <Filter>src\d3d12</Filter>
+    </ClCompile>
+    <ClCompile Include="src\d3d12\Win32Application.cpp">
+      <Filter>src\d3d12</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -437,6 +449,33 @@
     </ClInclude>
     <ClInclude Include="src\modern_gpu\include\util\util.h">
       <Filter>src\mordern_gpu\include\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\d3d12\d3dx12.h">
+      <Filter>src\d3d12</Filter>
+    </ClInclude>
+    <ClInclude Include="src\d3d12\DXSample.h">
+      <Filter>src\d3d12</Filter>
+    </ClInclude>
+    <ClInclude Include="src\d3d12\stdafx.h">
+      <Filter>src\d3d12</Filter>
+    </ClInclude>
+    <ClInclude Include="src\d3d12\Win32Application.h">
+      <Filter>src\d3d12</Filter>
+    </ClInclude>
+    <ClInclude Include="src\d3d12\pix3Runtime\pix3.h">
+      <Filter>src\d3d12\pix3Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="src\d3d12\pix3Runtime\pix3_win.h">
+      <Filter>src\d3d12\pix3Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="src\d3d12\pix3Runtime\PIXEventsCommon.h">
+      <Filter>src\d3d12\pix3Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="src\d3d12\pix3Runtime\PIXEventsGenerated.h">
+      <Filter>src\d3d12\pix3Runtime</Filter>
+    </ClInclude>
+    <ClInclude Include="src\d3d12\DXSampleHelper.h">
+      <Filter>src\d3d12</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

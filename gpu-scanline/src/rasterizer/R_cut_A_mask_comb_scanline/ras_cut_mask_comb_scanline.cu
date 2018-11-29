@@ -22,9 +22,13 @@
 //#include "../shared/ras_icurve.cuh"
 #include "../kernel/animation.h"
 
-#include<ctime>
-
 #define ENABLE_WINDING_NUMBER_SEGMENT_SCAN
+
+
+
+
+
+
 
 namespace Mochimazui {
 
@@ -176,7 +180,6 @@ __global__ void k_gen_fragment_and_stencil_mask(
 		uint8_t rev = i_curve_reversed[cid];
 		auto curve_type = i_curve_type[cid];
 		auto curve_vertex_pos = i_curve_vertex_pos[cid];
-
 		auto p0 = curve_vertex_pos;
 
 		float2 cv0, cv1, cv2, cv3;
@@ -274,10 +277,6 @@ __global__ void k_gen_fragment_and_stencil_mask(
 		else {
 			if (vf.y <= wn_y && wn_y < vl.y) {
 				scan_winding_number = -1;
-				//if (thread_index % 5 == 1)
-				//{
-				//	scan_winding_number = 1;
-				//}
 			}
 			else if (vl.y <= wn_y && wn_y < vf.y) {
 				scan_winding_number = 1;
@@ -424,14 +423,7 @@ __global__ void k_gen_fragment_and_stencil_mask(
 
 	o_path_id[ti] = pathid | winding_number_change << 30;
 
-
 	o_winding_number[ti] = scan_winding_number;
-	//if (ti % 10 == 0)
-	//{
-	//	o_winding_number[ti] = scan_winding_number-1;
-	//}
-
-
 
 	// sort segment.
 	//int scanseg = 0;
@@ -441,15 +433,7 @@ __global__ void k_gen_fragment_and_stencil_mask(
 		else { pathid1 = n_paths; }
 		//scanseg = (pathid < pathid1);
 		for (int j = pathid + 1; j <= pathid1; j++) {
-
 			o_sort_segment[j] = ti + 1;
-
-			//if (pathid1 % 100 == 1)
-			//{
-			//	o_sort_segment[j] = ti - 1;
-			//}
-
-			
 		}
 	}
 	else {
@@ -756,7 +740,6 @@ __global__ void k_gen_stencil_block_boundary(
 	) {
 	//only write out if the ids are the same
 	int i = GET_ID() + 1;
-
 	if(i>=n_blocks){return;}
 	int fragIndex0 = i_pfrag[i*PREV_BLOCK_SIZE-1 + sn * 6] - 1;
 	int fragIndex1 = i_pfrag[i*PREV_BLOCK_SIZE + sn * 6] - 1;
@@ -895,11 +878,6 @@ __global__ void k_gen_gl_merged_fragment_and_span(
 extern int tiger_transform_x;
 extern int tiger_transform_y;
 
-static int fps = 0;
-static int lastTime = 0; // ms
-static int curTime = 0; // ms
-static int frameCount = 0;
-
 // -------- -------- -------- -------- -------- -------- -------- --------
 // -------- -------- -------- -------- -------- -------- -------- --------
 // @function rasterizeImpl
@@ -924,8 +902,6 @@ void VGRasterizer::rasterizeImpl() {
 	DEBUG_CUDA_DEVICE_SYNC_AND_CHECK_ERROR("beginning");
 
 	g_alloc.reset();
-
-	int n_memory = 0;
 
 	int n_paths;
 	int n_curves;
@@ -958,8 +934,6 @@ void VGRasterizer::rasterizeImpl() {
 	n_curves = _in.n_curves;
 	n_vertices = _in.n_vertices;
 
-
-
 	_element_number.path = n_paths;
 	_element_number.curve = n_curves;
 	_element_number.vertex = n_vertices;
@@ -976,8 +950,6 @@ void VGRasterizer::rasterizeImpl() {
 		_gpu.transformedVertex.resizeWithoutCopy(n_vertices);
 		_base_gpu_is_path_visible.resizeWithoutCopy(n_paths);
 		cudaMemsetAsync(_base_gpu_is_path_visible.gptr(), 0, n_paths * sizeof(uint64_t));
-		n_memory += n_vertices;
-		n_memory += n_paths;
 
 		float z = (float)std::min(_output_buffer_size.x, _output_buffer_size.y);
 		LAUNCH(k_transformVertex, n_vertices, 256, (
@@ -993,18 +965,8 @@ void VGRasterizer::rasterizeImpl() {
 	// -------- -------- -------- --------
 	// -------- -------- -------- --------
 
-
-
 	_gpu.curve_pixel_count.resizeWithoutCopy(n_curves + 1);
 	_gpu.monotonic_cutpoint_cache.resizeWithoutCopy(n_curves * 5);
-
-	n_memory += (n_curves+1);
-	n_memory += (n_curves*5);
-
-	//for (int i = 0; i < _in.curve_arc_w.size(); i++)
-	//{
-	//	printf("%d=%f", i, _in.curve_arc_w[i]);
-	//}
 
 	//
 	LAUNCH((k_make_intersection_0<FRAG_SIZE, 256>), n_curves, 256, (
@@ -1028,7 +990,7 @@ void VGRasterizer::rasterizeImpl() {
 	int stride_fragments = (n_fragments + 256)&-256;
 
 	if (_verbose) {
-		printf(">>> n_curves2 %d\n", n_curves);
+		printf(">>> n_curves %d\n", n_curves);
 		printf(">>> n_fragments %d\n", n_fragments);
 		printf(">>> stride_fragments %d\n", stride_fragments);
 	}
@@ -1036,9 +998,6 @@ void VGRasterizer::rasterizeImpl() {
 	//
 	_gpu.intersection.resizeWithoutCopy(n_fragments * 2 + 2);
 	_gpu.fragmentData.resizeWithoutCopy(8 * stride_fragments + 1);
-
-	n_memory += (n_fragments * 2 + 2);
-	n_memory += (8 * stride_fragments + 1);
 
 	cuglUpdateBuffer(sizeof(int) * 4 * n_fragments,
 		_gl.buffer.stencilDrawMask, _cuda.resource.stencilDrawMask);
@@ -1242,7 +1201,6 @@ void VGRasterizer::rasterizeImpl() {
 	int n_blocks_gen_stencil = divup(n_fragments, GEN_STENCIL_BLOCK_SIZE);
 	if (_samples == 8) {
 		_gpu.blockBoundaryBins.resizeWithoutCopy(FRAG_SIZE*FRAG_SIZE * 2 * 2 * n_blocks_gen_stencil + 2);
-		n_memory += (FRAG_SIZE*FRAG_SIZE * 2 * 2 * n_blocks_gen_stencil + 2);
 		//cudaDeviceSetSharedMemConfig(cudaSharedMemBankSizeEightByte);
 		cudaDeviceSetCacheConfig(cudaFuncCachePreferL1);
 		//cudaDeviceSetCacheConfig(cudaFuncCachePreferShared);
@@ -1334,8 +1292,6 @@ void VGRasterizer::rasterizeImpl() {
 
 		count_vg2_pixel();
 	}
-
-	//printf("n_momory=%d\n", n_memory);
 
 	// -------- -------- -------- --------
 	cuglUnMap(_cuda.resource.stencilDrawMask);
@@ -1482,7 +1438,6 @@ void VGRasterizer::rasterizeImpl() {
 	glDrawArrays(GL_LINES, 0, (n_output_fragments + n_spans) * 2);
 	_gl.program.output.disuse();
 
-	_show_fps = 0;
 	if (_show_fps) {
 		_base_gl_program_fps.use();
 		glDrawArrays(GL_QUADS, 0, 4);
@@ -1493,27 +1448,10 @@ void VGRasterizer::rasterizeImpl() {
 	DEBUG_CHECK_GL_ERROR();
 
 	if (_enable_step_timing) {
-		//glFinish();
+		glFinish();
 		long long ts;
 		QueryPerformanceCounter((LARGE_INTEGER*)&ts);
 		_step_timestamp.push_back(ts);
-	}
-
-	//FPS
-	++frameCount;
-	if (frameCount == 1)
-	{
-
-		lastTime = clock();
-	}
-
-	curTime = clock();
-	if ((curTime - lastTime) / CLOCKS_PER_SEC > 1) // 取固定时间间隔为1秒
-	{
-		fps = frameCount;
-		frameCount = 0;
-		lastTime = curTime;
-		printf("@@@@@@@@@@@@fps=%d\n", fps);
 	}
 
 	//
@@ -1543,7 +1481,39 @@ void VGRasterizer::initQMMaskTable() {
 }
 
 void VGRasterizer::rasterizeImpl() {
+	/*
+	for (UINT threadIndex = 0; threadIndex < ThreadCount; ++threadIndex)
+	{
+		// Create compute resources.
+		D3D12_COMMAND_QUEUE_DESC queueDesc = { D3D12_COMMAND_LIST_TYPE_COMPUTE, 0, D3D12_COMMAND_QUEUE_FLAG_NONE };
+		ThrowIfFailed(m_device->CreateCommandQueue(&queueDesc, IID_PPV_ARGS(&m_computeCommandQueue[threadIndex])));
+		ThrowIfFailed(m_device->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_COMPUTE, IID_PPV_ARGS(&m_computeAllocator[threadIndex])));
+		ThrowIfFailed(m_device->CreateCommandList(0, D3D12_COMMAND_LIST_TYPE_COMPUTE, m_computeAllocator[threadIndex].Get(), nullptr, IID_PPV_ARGS(&m_computeCommandList[threadIndex])));
+		ThrowIfFailed(m_device->CreateFence(0, D3D12_FENCE_FLAG_SHARED, IID_PPV_ARGS(&m_threadFences[threadIndex])));
+		m_threadFenceEvents[threadIndex] = CreateEvent(nullptr, FALSE, FALSE, nullptr);
+		if (m_threadFenceEvents[threadIndex] == nullptr)
+		{
+			ThrowIfFailed(HRESULT_FROM_WIN32(GetLastError()));
+		}
+
+		m_threadData[threadIndex].pContext = this;
+		m_threadData[threadIndex].threadIndex = threadIndex;
+
+		m_threadHandles[threadIndex] = CreateThread(
+			nullptr,
+			0,
+			reinterpret_cast<LPTHREAD_START_ROUTINE>(ThreadProc),
+			reinterpret_cast<void*>(&m_threadData[threadIndex]),
+			CREATE_SUSPENDED,
+			nullptr);
+
+		ResumeThread(m_threadHandles[threadIndex]);
+	}
+	*/
+
 	rasterizeImpl<VG_RASTERIZER_BIG_FRAGMENT_SIZE>();
+
+
 }
 
 } // end of namespace BigFragAM

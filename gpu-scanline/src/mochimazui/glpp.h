@@ -21,7 +21,7 @@ namespace GLPP {
 
 // -------- -------- -------- -------- -------- -------- -------- --------
 inline void checkGLError() {
-	//glFinish();
+	glFinish();
 	auto e = glGetError();
 	if (e != GL_NO_ERROR) {
 		auto estr = gluErrorString(e);

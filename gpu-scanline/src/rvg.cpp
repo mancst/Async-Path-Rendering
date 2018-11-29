@@ -175,17 +175,10 @@ namespace Mochimazui {
 
 		int last_path_vertex_number = -1;
 
-		int n = 0;
 		//
 		while (fin >> tstr) {
-			n++;
-			++currentLine;
 
-			if (currentLine % 50 == 1)
-			{
-				getline(fin, tstr);
-				continue;
-			}
+			++currentLine;
 
 			if (tstr == "//") {
 				// ignore;
@@ -241,11 +234,8 @@ namespace Mochimazui {
 			int contourVertexBegin = pathVertexBegin;
 			bool closed = false;
 
-
-
 			//
 			while (fin >> tstr) {
-				
 				if (tstr != "fL" && tstr.length() != 1) { break; }
 
 				char opChar = tstr[0];
@@ -723,7 +713,6 @@ namespace Mochimazui {
 				assert(0);
 			}
 		}
-		printf("@@@@@@@@@@@@n = %d", n);
 
 		{
 			// post-process the gradients

@@ -1,10 +1,10 @@
-# An asynchronous path rendering based on pixel-grained subdivision, high-efficient intersection location and customized winding number computation
+# Async Scanline
 
 ## Pre-built Binary 
 
 ./x64/release/gpu-scanline.exe. Tested on 64 bit Windows 10. Copy to ./working_directory to run. <br/>
-Built with Visual Studio 2013 and CUDA 7.5. <br/>
-Requires a NVIDIA graphics card with CUDA sm_60 and DirectX 12 support.
+Built with Visual Studio 2017 and CUDA 9.2. <br/>
+Requires a NVIDIA graphics card with CUDA sm_50 and DirectX 12 support.
 
 Right button: move. <br/>
 Mouse wheel: scale. <br/>
@@ -12,8 +12,9 @@ Left button: draw.
 
 ## Build Dependency
 
-* Visual Studio 2013/2015
-* CUDA 7.5/8.0, lower versions may work as well.
+* Visual Studio 2015/2017
+* CUDA 9.0/9.2, lower versions may work as well.
+* DirectX 12
 
 ----
 Open source code and pre-built binaries included in /3rd
@@ -21,7 +22,7 @@ Open source code and pre-built binaries included in /3rd
 * [SDL 2.0.3](https://www.libsdl.org/) for basic window system and UI.
 * [Boost 1.60.0](http://www.boost.org/) for command line options.
 
-Libraries are built on a 64-bit Windows 10 system with Visual Studio 2013.
+Libraries are built on a 64-bit Windows 10 system with Visual Studio 2017.
 You may need to download or build these libraries on your own system.
 
 ----

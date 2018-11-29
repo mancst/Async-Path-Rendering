@@ -1,44 +1,32 @@
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\vg_container.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\vg_main.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\svg_loader.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\svg_load.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\svg.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\rvg_loader.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\rvg.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\ras_base.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\glpp.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\glgui.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\file.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\camera_controller_3d.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\camera_3d.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\bitmap.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\cuda_cached_allocator.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\vg_config.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\text_util.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\ras_cut_mask_comb_scanline.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\config.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\bezier_curve.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\stb_impl.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\gl_4_5_compatibility.obj
-e:\llj\code\vector graph rander\code-experiment\code\x64\debug\gpu-scanline.ilk
-e:\llj\code\vector graph rander\code-experiment\code\x64\debug\gpu-scanline.exe
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\animation.cu.cache
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\cuda_sort.cu.cache
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\ras_base.cu.cache
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\ras_cut.cu.cache
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\ras_cut_mask_comb_scanline.cu.cache
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\ras_qm_mask.cu.cache
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\thrust_impl_scan.cu.cache
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\animation.cu.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\cuda_sort.cu.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\ras_base.cu.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\ras_cut.cu.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\ras_cut_mask_comb_scanline.cu.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\ras_qm_mask.cu.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\thrust_impl_scan.cu.obj
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\gpu-scanline.tlog\cl.command.1.tlog
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\gpu-scanline.tlog\cl.read.1.tlog
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\gpu-scanline.tlog\cl.write.1.tlog
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\gpu-scanline.tlog\link.command.1.tlog
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\gpu-scanline.tlog\link.read.1.tlog
-e:\llj\code\vector graph rander\code-experiment\code\gpu-scanline\x64\debug\gpu-scanline.tlog\link.write.1.tlog
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\vg_container.obj
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\svg_loader.obj
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\svg_load.obj
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\svg.obj
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\rvg_loader.obj
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\ras_base.obj
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\glpp.obj
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\file.obj
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\camera_controller_3d.obj
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\camera_3d.obj
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\bitmap.obj
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\cuda_cached_allocator.obj
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\text_util.obj
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\bezier_curve.obj
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\animation.cu.cache
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\cuda_sort.cu.cache
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\ras_base.cu.cache
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\ras_cut.cu.cache
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\ras_cut_mask_comb_scanline.cu.cache
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\ras_qm_mask.cu.cache
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\thrust_impl_scan.cu.cache
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\animation.cu.obj
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\cuda_sort.cu.obj
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\ras_base.cu.obj
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\ras_cut.cu.obj
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\ras_cut_mask_comb_scanline.cu.obj
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\ras_qm_mask.cu.obj
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\thrust_impl_scan.cu.obj
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\vc141.pdb
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\gpu-scanline.tlog\cl.command.1.tlog
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\gpu-scanline.tlog\cl.read.1.tlog
+f:\llj\code\asyn scanline\gpu-scanline\x64\debug\gpu-scanline.tlog\cl.write.1.tlog

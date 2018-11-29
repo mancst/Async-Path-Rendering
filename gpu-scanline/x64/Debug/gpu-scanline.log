@@ -1,50 +1,112 @@
-﻿生成启动时间为 2017/12/13 19:14:23。
-     1>项目“E:\llj\code\Vector Graph Rander\code-experiment\code\gpu-scanline\gpu-scanline.vcxproj”在节点 2 上(Build 个目标)。
-     1>AddCudaCompileDeps:
-         D:\vs2013\VC\bin\x86_amd64\cl.exe /E /nologo /showIncludes /TP /D__CUDACC__ /D_DEBUG /D_CONSOLE /D_UNICODE /DUNICODE /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include" /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\bin" /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include" /I. /FIcuda_runtime.h /c "E:\llj\code\Vector Graph Rander\code-experiment\code\gpu-scanline\src\rasterizer\kernel\animation.cu" 
-     1>项目“E:\llj\code\Vector Graph Rander\code-experiment\code\gpu-scanline\gpu-scanline.vcxproj”(1)正在节点 2 上生成“E:\llj\code\Vector Graph Rander\code-experiment\code\gpu-scanline\gpu-scanline.vcxproj”(1:2) (CudaBuildCore 个目标)。
-     1>CudaBuildCore:
-         Compiling CUDA source file src\rasterizer\kernel\animation.cu...
-         cmd.exe /C "C:\Users\Administrator\AppData\Local\Temp\tmpa6f6dc4786884ba184a3667cbf98d464.cmd"
-         "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" -gencode=arch=compute_50,code=\"sm_50,compute_50\" --use-local-env --cl-version 2013 -ccbin "D:\vs2013\VC\bin\x86_amd64"  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include"  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static -Xcompiler "/wd 4819" -g   -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MDd " -o x64\Debug\animation.cu.obj "E:\llj\code\Vector Graph Rander\code-experiment\code\gpu-scanline\src\rasterizer\kernel\animation.cu"
-         
-         E:\llj\code\Vector Graph Rander\code-experiment\code\gpu-scanline>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" -gencode=arch=compute_50,code=\"sm_50,compute_50\" --use-local-env --cl-version 2013 -ccbin "D:\vs2013\VC\bin\x86_amd64"  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\include"  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static -Xcompiler "/wd 4819" -g   -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MDd " -o x64\Debug\animation.cu.obj "E:\llj\code\Vector Graph Rander\code-experiment\code\gpu-scanline\src\rasterizer\kernel\animation.cu" 
-     1>CUDACOMPILE : nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
-         animation.cu
-     1>已完成生成项目“E:\llj\code\Vector Graph Rander\code-experiment\code\gpu-scanline\gpu-scanline.vcxproj”(CudaBuildCore 个目标)的操作。
-     1>Link:
-         D:\vs2013\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"E:\llj\code\Vector Graph Rander\code-experiment\code\x64\Debug\gpu-scanline.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0\lib\x64" opengl32.lib glu32.lib SDL2.lib SDL2main.lib cudart.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\llj\code\Vector Graph Rander\code-experiment\code\x64\Debug\gpu-scanline.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\llj\code\Vector Graph Rander\code-experiment\code\x64\Debug\gpu-scanline.lib" /MACHINE:X64 x64\Debug\animation.cu.obj
-         x64\Debug\ras_cut_mask_comb_scanline.cu.obj
-         x64\Debug\ras_qm_mask.cu.obj
-         x64\Debug\cuda_sort.cu.obj
-         x64\Debug\ras_base.cu.obj
-         x64\Debug\ras_cut.cu.obj
-         x64\Debug\thrust_impl_scan.cu.obj
-         x64\Debug\bezier_curve.obj
-         x64\Debug\config.obj
-         x64\Debug\ras_cut_mask_comb_scanline.obj
-         x64\Debug\text_util.obj
-         x64\Debug\vg_config.obj
-         x64\Debug\cuda_cached_allocator.obj
-         x64\Debug\gl_4_5_compatibility.obj
-         x64\Debug\stb_impl.obj
-         x64\Debug\bitmap.obj
-         x64\Debug\camera_3d.obj
-         x64\Debug\camera_controller_3d.obj
-         x64\Debug\file.obj
-         x64\Debug\glgui.obj
-         x64\Debug\glpp.obj
-         x64\Debug\ras_base.obj
-         x64\Debug\rvg.obj
-         x64\Debug\rvg_loader.obj
-         x64\Debug\svg.obj
-         x64\Debug\svg_load.obj
-         x64\Debug\svg_loader.obj
-         x64\Debug\vg_main.obj
-         x64\Debug\vg_container.obj
-         gpu-scanline.vcxproj -> E:\llj\code\Vector Graph Rander\code-experiment\code\x64\Debug\gpu-scanline.exe
-     1>已完成生成项目“E:\llj\code\Vector Graph Rander\code-experiment\code\gpu-scanline\gpu-scanline.vcxproj”(Build 个目标)的操作。
-
-生成成功。
-
-已用时间 00:00:16.42
+﻿  Compiling CUDA source file src\rasterizer\kernel\animation.cu...
+  Compiling CUDA source file src\rasterizer\shared\ras_qm_mask.cu...
+  Compiling CUDA source file src\rasterizer\R_cut_A_mask_comb_scanline\ras_cut_mask_comb_scanline.cu...
+  Compiling CUDA source file src\cuda\cuda_sort.cu...
+  
+  
+  
+  F:\llj\code\Asyn Scanline\gpu-scanline>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.2\bin\nvcc.exe" -gencode=arch=compute_50,code=\"sm_50,compute_50\" --use-local-env -ccbin "H:\Software\vs2017\VC\Tools\MSVC\14.15.26726\bin\HostX86\x64" -x cu  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.2\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.2\include"  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static -Xcompiler "/wd 4819" -g   -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /Od /Fdx64\Debug\vc141.pdb /FS /Zi /RTC1 /MDd " -o x64\Debug\animation.cu.obj "F:\llj\code\Asyn Scanline\gpu-scanline\src\rasterizer\kernel\animation.cu" 
+  F:\llj\code\Asyn Scanline\gpu-scanline>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.2\bin\nvcc.exe" -gencode=arch=compute_50,code=\"sm_50,compute_50\" --use-local-env -ccbin "H:\Software\vs2017\VC\Tools\MSVC\14.15.26726\bin\HostX86\x64" -x cu  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.2\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.2\include"  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static -Xcompiler "/wd 4819" -g   -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /Od /Fdx64\Debug\vc141.pdb /FS /Zi /RTC1 /MDd " -o x64\Debug\cuda_sort.cu.obj "F:\llj\code\Asyn Scanline\gpu-scanline\src\cuda\cuda_sort.cu" 
+  F:\llj\code\Asyn Scanline\gpu-scanline>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.2\bin\nvcc.exe" -gencode=arch=compute_50,code=\"sm_50,compute_50\" --use-local-env -ccbin "H:\Software\vs2017\VC\Tools\MSVC\14.15.26726\bin\HostX86\x64" -x cu  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.2\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.2\include"  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static -Xcompiler "/wd 4819" -g   -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /Od /Fdx64\Debug\vc141.pdb /FS /Zi /RTC1 /MDd " -o x64\Debug\ras_qm_mask.cu.obj "F:\llj\code\Asyn Scanline\gpu-scanline\src\rasterizer\shared\ras_qm_mask.cu" 
+  
+  F:\llj\code\Asyn Scanline\gpu-scanline>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.2\bin\nvcc.exe" -gencode=arch=compute_50,code=\"sm_50,compute_50\" --use-local-env -ccbin "H:\Software\vs2017\VC\Tools\MSVC\14.15.26726\bin\HostX86\x64" -x cu  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.2\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.2\include"  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static -Xcompiler "/wd 4819" -g   -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /Od /Fdx64\Debug\vc141.pdb /FS /Zi /RTC1 /MDd " -o x64\Debug\ras_cut_mask_comb_scanline.cu.obj "F:\llj\code\Asyn Scanline\gpu-scanline\src\rasterizer\R_cut_A_mask_comb_scanline\ras_cut_mask_comb_scanline.cu" 
+f:\llj\code\asyn scanline\gpu-scanline\src\modern_gpu\include\device\../device/intrinsics.cuh(112): warning : function "__shfl_up(float, unsigned int, int)"
+f:\llj\code\asyn scanline\gpu-scanline\src\modern_gpu\include\device\../device/intrinsics.cuh(122): warning : function "__shfl_up(int, unsigned int, int)"
+f:\llj\code\asyn scanline\gpu-scanline\src\modern_gpu\include\device\../device/intrinsics.cuh(123): warning : function "__shfl_up(int, unsigned int, int)"
+ptxas C : /Users/mancst/AppData/Local/Temp/tmpxft_00001748_00000000-6_cuda_sort.ptx, line 6064; warning : Instruction 'shfl' without '.sync' is deprecated since PTX ISA version 6.0 and will be discontinued in a future PTX ISA version
+ptxas C : /Users/mancst/AppData/Local/Temp/tmpxft_00001748_00000000-6_cuda_sort.ptx, line 6159; warning : Instruction 'shfl' without '.sync' is deprecated since PTX ISA version 6.0 and will be discontinued in a future PTX ISA version
+ptxas C : /Users/mancst/AppData/Local/Temp/tmpxft_00001748_00000000-6_cuda_sort.ptx, line 6344; warning : Instruction 'shfl' without '.sync' is deprecated since PTX ISA version 6.0 and will be discontinued in a future PTX ISA version
+ptxas C : /Users/mancst/AppData/Local/Temp/tmpxft_00001748_00000000-6_cuda_sort.ptx, line 6439; warning : Instruction 'shfl' without '.sync' is deprecated since PTX ISA version 6.0 and will be discontinued in a future PTX ISA version
+ptxas C : /Users/mancst/AppData/Local/Temp/tmpxft_00001748_00000000-6_cuda_sort.ptx, line 8196; warning : Instruction 'shfl' without '.sync' is deprecated since PTX ISA version 6.0 and will be discontinued in a future PTX ISA version
+ptxas C : /Users/mancst/AppData/Local/Temp/tmpxft_00001748_00000000-6_cuda_sort.ptx, line 8291; warning : Instruction 'shfl' without '.sync' is deprecated since PTX ISA version 6.0 and will be discontinued in a future PTX ISA version
+ptxas C : /Users/mancst/AppData/Local/Temp/tmpxft_00001748_00000000-6_cuda_sort.ptx, line 8476; warning : Instruction 'shfl' without '.sync' is deprecated since PTX ISA version 6.0 and will be discontinued in a future PTX ISA version
+ptxas C : /Users/mancst/AppData/Local/Temp/tmpxft_00001748_00000000-6_cuda_sort.ptx, line 8571; warning : Instruction 'shfl' without '.sync' is deprecated since PTX ISA version 6.0 and will be discontinued in a future PTX ISA version
+  cuda_sort.cu
+  Compiling CUDA source file src\rasterizer\shared\ras_base.cu...
+  
+  F:\llj\code\Asyn Scanline\gpu-scanline>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.2\bin\nvcc.exe" -gencode=arch=compute_50,code=\"sm_50,compute_50\" --use-local-env -ccbin "H:\Software\vs2017\VC\Tools\MSVC\14.15.26726\bin\HostX86\x64" -x cu  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.2\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.2\include"  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static -Xcompiler "/wd 4819" -g   -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /Od /Fdx64\Debug\vc141.pdb /FS /Zi /RTC1 /MDd " -o x64\Debug\ras_base.cu.obj "F:\llj\code\Asyn Scanline\gpu-scanline\src\rasterizer\shared\ras_base.cu" 
+  ras_qm_mask.cu
+  animation.cu
+  Compiling CUDA source file src\rasterizer\shared\ras_cut.cu...
+  
+  F:\llj\code\Asyn Scanline\gpu-scanline>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.2\bin\nvcc.exe" -gencode=arch=compute_50,code=\"sm_50,compute_50\" --use-local-env -ccbin "H:\Software\vs2017\VC\Tools\MSVC\14.15.26726\bin\HostX86\x64" -x cu  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.2\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.2\include"  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static -Xcompiler "/wd 4819" -g   -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /Od /Fdx64\Debug\vc141.pdb /FS /Zi /RTC1 /MDd " -o x64\Debug\ras_cut.cu.obj "F:\llj\code\Asyn Scanline\gpu-scanline\src\rasterizer\shared\ras_cut.cu" 
+  ras_cut_mask_comb_scanline.cu
+F:/llj/code/Asyn Scanline/gpu-scanline/src/rasterizer/kernel/animation.cu(433): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 2 拥有了类型“size_t”
+  F:/llj/code/Asyn Scanline/gpu-scanline/src/rasterizer/kernel/animation.cu(433): note: 请考虑在格式字符串中使用“%zd”
+F:/llj/code/Asyn Scanline/gpu-scanline/src/rasterizer/kernel/animation.cu(438): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 2 拥有了类型“size_t”
+  F:/llj/code/Asyn Scanline/gpu-scanline/src/rasterizer/kernel/animation.cu(438): note: 请考虑在格式字符串中使用“%zd”
+F:/llj/code/Asyn Scanline/gpu-scanline/src/rasterizer/kernel/animation.cu(443): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 2 拥有了类型“size_t”
+  F:/llj/code/Asyn Scanline/gpu-scanline/src/rasterizer/kernel/animation.cu(443): note: 请考虑在格式字符串中使用“%zd”
+F:/llj/code/Asyn Scanline/gpu-scanline/src/rasterizer/kernel/animation.cu(1662): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 2 拥有了类型“unsigned __int64”
+  F:/llj/code/Asyn Scanline/gpu-scanline/src/rasterizer/kernel/animation.cu(1662): note: 请考虑在格式字符串中使用“%zd”
+F:/llj/code/Asyn Scanline/gpu-scanline/src/rasterizer/kernel/animation.cu(2742): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 2 拥有了类型“size_t”
+  F:/llj/code/Asyn Scanline/gpu-scanline/src/rasterizer/kernel/animation.cu(2742): note: 请考虑在格式字符串中使用“%zd”
+F:/llj/code/Asyn Scanline/gpu-scanline/src/rasterizer/kernel/animation.cu(2747): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 2 拥有了类型“size_t”
+  F:/llj/code/Asyn Scanline/gpu-scanline/src/rasterizer/kernel/animation.cu(2747): note: 请考虑在格式字符串中使用“%zd”
+F:/llj/code/Asyn Scanline/gpu-scanline/src/rasterizer/kernel/animation.cu(2752): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 2 拥有了类型“size_t”
+  F:/llj/code/Asyn Scanline/gpu-scanline/src/rasterizer/kernel/animation.cu(2752): note: 请考虑在格式字符串中使用“%zd”
+  Compiling CUDA source file src\thrust_impl_scan.cu...
+  
+  F:\llj\code\Asyn Scanline\gpu-scanline>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.2\bin\nvcc.exe" -gencode=arch=compute_50,code=\"sm_50,compute_50\" --use-local-env -ccbin "H:\Software\vs2017\VC\Tools\MSVC\14.15.26726\bin\HostX86\x64" -x cu  -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.2\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.2\include"  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static -Xcompiler "/wd 4819" -g   -D_DEBUG -D_CONSOLE -D_UNICODE -DUNICODE -Xcompiler "/EHsc /W3 /nologo /Od /Fdx64\Debug\vc141.pdb /FS /Zi /RTC1 /MDd " -o x64\Debug\thrust_impl_scan.cu.obj "F:\llj\code\Asyn Scanline\gpu-scanline\src\thrust_impl_scan.cu" 
+  ras_cut.cu
+  ras_base.cu
+  thrust_impl_scan.cu
+  bezier_curve.cpp
+  config.cpp
+  Unknown compiler version - please run the configure tests and report the results
+f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(192): error C2220: 警告被视为错误 - 没有生成“object”文件
+f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(192): warning C4477: “sscanf”: 格式字符串“%ld”需要类型“long *”的参数，但可变参数 1 拥有了类型“int64_t *”
+  f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(192): note: 请考虑在格式字符串中使用“%lld”
+  f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(192): note: 请考虑在格式字符串中使用“%Id”
+  f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(192): note: 请考虑在格式字符串中使用“%I64d”
+f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(198): warning C4477: “sscanf”: 格式字符串“%lf”需要类型“double *”的参数，但可变参数 1 拥有了类型“float *”
+  f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(198): note: 请考虑在格式字符串中使用“%f”
+  ras_cut_mask_comb_scanline.cpp
+  text_util.cpp
+  vg_config.cpp
+  Unknown compiler version - please run the configure tests and report the results
+f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(192): error C2220: 警告被视为错误 - 没有生成“object”文件
+f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(192): warning C4477: “sscanf”: 格式字符串“%ld”需要类型“long *”的参数，但可变参数 1 拥有了类型“int64_t *”
+  f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(192): note: 请考虑在格式字符串中使用“%lld”
+  f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(192): note: 请考虑在格式字符串中使用“%Id”
+  f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(192): note: 请考虑在格式字符串中使用“%I64d”
+f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(198): warning C4477: “sscanf”: 格式字符串“%lf”需要类型“double *”的参数，但可变参数 1 拥有了类型“float *”
+  f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(198): note: 请考虑在格式字符串中使用“%f”
+  cuda_cached_allocator.cpp
+  bitmap.cpp
+  camera_3d.cpp
+  camera_controller_3d.cpp
+  file.cpp
+  glgui.cpp
+h:\software\vs2017\vc\tools\msvc\14.15.26726\include\setjmp.h(165): error C3829: 标准属性 "noreturn" 只可适用于函数
+h:\software\vs2017\vc\tools\msvc\14.15.26726\include\setjmp.h(165): error C2206: “longjmp”: typedef 不能用于函数定义
+  glpp.cpp
+  ras_base.cpp
+  rvg.cpp
+  Unknown compiler version - please run the configure tests and report the results
+f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(192): error C2220: 警告被视为错误 - 没有生成“object”文件
+f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(192): warning C4477: “sscanf”: 格式字符串“%ld”需要类型“long *”的参数，但可变参数 1 拥有了类型“int64_t *”
+  f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(192): note: 请考虑在格式字符串中使用“%lld”
+  f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(192): note: 请考虑在格式字符串中使用“%Id”
+  f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(192): note: 请考虑在格式字符串中使用“%I64d”
+f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(198): warning C4477: “sscanf”: 格式字符串“%lf”需要类型“double *”的参数，但可变参数 1 拥有了类型“float *”
+  f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(198): note: 请考虑在格式字符串中使用“%f”
+  rvg_loader.cpp
+  svg.cpp
+  svg_load.cpp
+  svg_loader.cpp
+  vg_main.cpp
+  Unknown compiler version - please run the configure tests and report the results
+f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(192): error C2220: 警告被视为错误 - 没有生成“object”文件
+f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(192): warning C4477: “sscanf”: 格式字符串“%ld”需要类型“long *”的参数，但可变参数 1 拥有了类型“int64_t *”
+  f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(192): note: 请考虑在格式字符串中使用“%lld”
+  f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(192): note: 请考虑在格式字符串中使用“%Id”
+  f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(192): note: 请考虑在格式字符串中使用“%I64d”
+f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(198): warning C4477: “sscanf”: 格式字符串“%lf”需要类型“double *”的参数，但可变参数 1 拥有了类型“float *”
+  f:\llj\code\asyn scanline\gpu-scanline\src\mochimazui\config.h(198): note: 请考虑在格式字符串中使用“%f”
+f:\llj\code\asyn scanline\gpu-scanline\src\vg_main.cpp(160): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“uint64_t”
+  f:\llj\code\asyn scanline\gpu-scanline\src\vg_main.cpp(160): note: 请考虑在格式字符串中使用“%lld”
+  f:\llj\code\asyn scanline\gpu-scanline\src\vg_main.cpp(160): note: 请考虑在格式字符串中使用“%Id”
+  f:\llj\code\asyn scanline\gpu-scanline\src\vg_main.cpp(160): note: 请考虑在格式字符串中使用“%I64d”
+  vg_container.cpp
+  正在生成代码...

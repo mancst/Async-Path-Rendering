@@ -620,10 +620,8 @@ void onKeyboard(uint32_t type, uint8_t state, SDL_Keysym keysym) {
 	}
 }
 
-
 void onTextInput(const char *text) {
-#if 0
-	printf("@@@@@@@@@@@@@@@@@@@@@@", text);
+
 	printf("TextInput: %s\n", text);
 
 	auto key = text[0];
@@ -681,9 +679,7 @@ void onTextInput(const char *text) {
 		//}
 		g_rasterizer->onCharMessage(key);
 	}
-#endif
 }
-
 
 // -------- -------- -------- -------- -------- -------- -------- --------
 void setupGLDebug() {
@@ -792,6 +788,7 @@ void loadVG() {
 
 // -------- -------- -------- -------- -------- -------- -------- --------
 void initUI() {
+
 	std::string uiFile = Config::MinimalUI() ? "./ui/minimal_ui.json" : "./ui/ui.json";
 	g_ui.window = g_app->windows().createWindowFromJSONFile(uiFile).lock();
 	if (!g_ui.window) {

@@ -430,17 +430,17 @@ void tree_animation(
 
 	// check reserved space.
 	if (n_paths >= _next_frame_path_in.fill_rule.reserved()) {
-		printf("%d %d\n", n_paths, _next_frame_path_in.fill_rule.reserved());
+		//printf("%d %d\n", n_paths, _next_frame_path_in.fill_rule.reserved());
 		throw std::runtime_error("vg_animation: reserve more path");
 	}
 
 	if (n_curves >= _next_frame_curve_in.curve_type.reserved()) {
-		printf("%d %d\n", n_curves, _next_frame_curve_in.curve_type.reserved());
+		//printf("%d %d\n", n_curves, _next_frame_curve_in.curve_type.reserved());
 		throw std::runtime_error("vg_animation: reserve more curve");
 	}
 
 	if (n_vertices >= _next_frame_curve_in.vertex.reserved()) {
-		printf("%d %d\n", n_vertices, _next_frame_curve_in.vertex.reserved());
+		//printf("%d %d\n", n_vertices, _next_frame_curve_in.vertex.reserved());
 		throw std::runtime_error("vg_animation: reserve more vertex");
 	}
 
@@ -1659,7 +1659,7 @@ void load_refugee_animation(
 	target_country->reserve((int)records_by_year.size());
 	
 	for (int i = 0; i < records_by_year.size(); ++i) {
-		printf("Frame: %d/%d\n", i + 1, records_by_year.size());
+		//printf("Frame: %d/%d\n", i + 1, records_by_year.size());
 
 		auto &records = records_by_year[i];
 
@@ -2739,17 +2739,17 @@ void chord_animation(
 
 	// check reserved space.
 	if (_path.n_paths >= _next_frame_path_in.fill_rule.reserved()) {
-		printf("%d %d\n", _path.n_paths, _next_frame_path_in.fill_rule.reserved());
+		//printf("%d %d\n", _path.n_paths, _next_frame_path_in.fill_rule.reserved());
 		throw std::runtime_error("vg_animation: reserve more path");
 	}
 
 	if (_vg.n_curves >= _next_frame_curve_in.curve_type.reserved()) {
-		printf("%d %d\n", _vg.n_curves, _next_frame_curve_in.curve_type.reserved());
+		//printf("%d %d\n", _vg.n_curves, _next_frame_curve_in.curve_type.reserved());
 		throw std::runtime_error("vg_animation: reserve more curve");
 	}
 
 	if (_vg.n_vertices >= _next_frame_curve_in.vertex.reserved()) {
-		printf("%d %d\n", _vg.n_vertices, _next_frame_curve_in.vertex.reserved());
+		//printf("%d %d\n", _vg.n_vertices, _next_frame_curve_in.vertex.reserved());
 		throw std::runtime_error("vg_animation: reserve more vertex");
 	}
 
