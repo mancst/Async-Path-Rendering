@@ -41,7 +41,19 @@ using stdext::error_printf;
 const float VGRasterizer::ParticleSpread = 400.0f;
 
 // -------- -------- -------- -------- -------- -------- -------- --------
-VGRasterizer::VGRasterizer() {
+VGRasterizer::VGRasterizer():
+	DXAsset(),
+	m_frameIndex(0),
+	m_viewport(0.0f, 0.0f, static_cast<float>(1024), static_cast<float>(900)),
+	m_scissorRect(0, 0, static_cast<LONG>(1024), static_cast<LONG>(900)),
+	m_rtvDescriptorSize(0),
+	m_srvUavDescriptorSize(0),
+	m_pConstantBufferGSData(nullptr),
+	m_renderContextFenceValue(0),
+	m_terminating(0),
+	m_srvIndex{},
+	m_frameFenceValues{}
+{
 
 	_input_transform[0] = make_float4(1.f, 0.f, 0.f, 0.f);
 	_input_transform[0] = make_float4(0.f, 1.f, 0.f, 0.f);
@@ -52,6 +64,21 @@ VGRasterizer::VGRasterizer() {
 	_output_transform[0] = make_float4(0.f, 1.f, 0.f, 0.f);
 	_output_transform[0] = make_float4(0.f, 0.f, 1.f, 0.f);
 	_output_transform[0] = make_float4(0.f, 0.f, 0.f, 1.f);
+
+	for (int n = 0; n < ThreadCount; n++)
+	{
+		m_renderContextFenceValues[n] = 0;
+		m_threadFenceValues[n] = 0;
+	}
+
+	float sqRootNumAsyncContexts = sqrt(static_cast<float>(ThreadCount));
+	m_heightInstances = static_cast<UINT>(ceil(sqRootNumAsyncContexts));
+	m_widthInstances = static_cast<UINT>(ceil(sqRootNumAsyncContexts));
+
+	if (m_widthInstances * (m_heightInstances - 1) >= ThreadCount)
+	{
+		m_heightInstances--;
+	}
 
 }
 
@@ -471,6 +498,40 @@ void VGRasterizer::initTextureAndFramebuffer() {
 	_base_gl_vertex_array_empty.create();
 
 	CHECK_GL_ERROR();
+
+	// Let the compute thread know that a new frame is being rendered.
+	for (int n = 0; n < ThreadCount; n++)
+	{
+		InterlockedExchange(&m_renderContextFenceValues[n], m_renderContextFenceValue);
+	}
+
+	// Compute work must be completed before the frame can render or else the SRV 
+	// will be in the wrong state.
+	for (UINT n = 0; n < ThreadCount; n++)
+	{
+		UINT64 threadFenceValue = InterlockedGetValue(&m_threadFenceValues[n]);
+		//if (m_threadFences[n]->GetCompletedValue() < threadFenceValue)
+		{
+			// Instruct the rendering command queue to wait for the current 
+			// compute work to complete.
+			//ThrowIfFailed(m_commandQueue->Wait(m_threadFences[n].Get(), threadFenceValue));
+		}
+	}
+
+	PIXBeginEvent(m_commandQueue.Get(), 0, L"Render");
+
+	//PopulateCommandList();
+
+	// Execute the command list.
+	ID3D12CommandList* ppCommandLists[] = { m_commandList.Get() };
+	//m_commandQueue->ExecuteCommandLists(_countof(ppCommandLists), ppCommandLists);
+
+	PIXEndEvent(m_commandQueue.Get());
+
+	// Present the frame.
+	//ThrowIfFailed(m_swapChain->Present(1, 0));
+
+	//MoveToNextFrame();
 }
 
 
@@ -478,123 +539,34 @@ void VGRasterizer::initTextureAndFramebuffer() {
 // Load the rendering pipeline dependencies.
 void VGRasterizer::LoadPipeline()
 {
-	UINT dxgiFactoryFlags = 0;
+	// create the device
+	D3D12CreateDevice(nullptr, D3D_FEATURE_LEVEL_12_0, IID_PPV_ARGS(&m_device));
 
-#if defined(_DEBUG)
-	// Enable the debug layer (requires the Graphics Tools "optional feature").
-	// NOTE: Enabling the debug layer after device creation will invalidate the active device.
-	{
-		ComPtr<ID3D12Debug> debugController;
-		if (SUCCEEDED(D3D12GetDebugInterface(IID_PPV_ARGS(&debugController))))
-		{
-			debugController->EnableDebugLayer();
-
-			// Enable additional debug layers.
-			dxgiFactoryFlags |= DXGI_CREATE_FACTORY_DEBUG;
-		}
-	}
-#endif
-
-	ComPtr<IDXGIFactory4> factory;
-	ThrowIfFailed(CreateDXGIFactory2(dxgiFactoryFlags, IID_PPV_ARGS(&factory)));
-	if (m_useWarpDevice)
-	{
-		ComPtr<IDXGIAdapter> warpAdapter;
-		ThrowIfFailed(factory->EnumWarpAdapter(IID_PPV_ARGS(&warpAdapter)));
-
-		ThrowIfFailed(D3D12CreateDevice(
-			warpAdapter.Get(),
-			D3D_FEATURE_LEVEL_11_0,
-			IID_PPV_ARGS(&m_device)
-		));
-	}
-	else
-	{
-		ComPtr<IDXGIAdapter1> hardwareAdapter;
-		GetHardwareAdapter(factory.Get(), &hardwareAdapter);
-
-		ThrowIfFailed(D3D12CreateDevice(
-			hardwareAdapter.Get(),
-			D3D_FEATURE_LEVEL_11_0,
-			IID_PPV_ARGS(&m_device)
-		));
-	}
-#if 0
-	// Describe and create the command queue.
-	D3D12_COMMAND_QUEUE_DESC queueDesc = {};
+	// create command queue
+	D3D12_COMMAND_QUEUE_DESC queueDesc;
+	ZeroMemory(&queueDesc, sizeof(queueDesc));
 	queueDesc.Flags = D3D12_COMMAND_QUEUE_FLAG_NONE;
 	queueDesc.Type = D3D12_COMMAND_LIST_TYPE_DIRECT;
+	//m_device->CreateCommandQueue(&queueDesc, IID_PPV_ARGS(&m_commandQueue));
 
-	ThrowIfFailed(m_device->CreateCommandQueue(&queueDesc, IID_PPV_ARGS(&m_commandQueue)));
-	NAME_D3D12_OBJECT(m_commandQueue);
+	// create dxgi factory
+	ComPtr<IDXGIFactory> pDxgiFactory;
+	CreateDXGIFactory1(IID_PPV_ARGS(&pDxgiFactory));
+	// create swap chain descriptor
+	DXGI_SWAP_CHAIN_DESC descSwapChain;
+	ZeroMemory(&descSwapChain, sizeof(descSwapChain));
+	descSwapChain.BufferCount = cNumSwapBufs;
+	descSwapChain.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+	descSwapChain.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
+	descSwapChain.SwapEffect = DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL;
+	descSwapChain.OutputWindow = m_hWnd;
+	descSwapChain.SampleDesc.Count = 1;
+	descSwapChain.Windowed = TRUE;
+	// create the swap chain
+	pDxgiFactory->CreateSwapChain(m_commandQueue.Get(), &descSwapChain, &m_swapChain);
 
-	// Describe and create the swap chain.
-	DXGI_SWAP_CHAIN_DESC1 swapChainDesc = {};
-	swapChainDesc.BufferCount = FrameCount;
-	swapChainDesc.Width = m_width;
-	swapChainDesc.Height = m_height;
-	swapChainDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
-	swapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
-	swapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_FLIP_DISCARD;
-	swapChainDesc.SampleDesc.Count = 1;
-	swapChainDesc.Flags = DXGI_SWAP_CHAIN_FLAG_FRAME_LATENCY_WAITABLE_OBJECT;
-
-	ComPtr<IDXGISwapChain1> swapChain;
-	ThrowIfFailed(factory->CreateSwapChainForHwnd(
-		m_commandQueue.Get(),        // Swap chain needs the queue so that it can force a flush on it.
-		Win32Application::GetHwnd(),
-		&swapChainDesc,
-		nullptr,
-		nullptr,
-		&swapChain
-	));
-
-	// This sample does not support fullscreen transitions.
-	ThrowIfFailed(factory->MakeWindowAssociation(Win32Application::GetHwnd(), DXGI_MWA_NO_ALT_ENTER));
-
-	ThrowIfFailed(swapChain.As(&m_swapChain));
-	m_frameIndex = m_swapChain->GetCurrentBackBufferIndex();
-	m_swapChainEvent = m_swapChain->GetFrameLatencyWaitableObject();
-
-	// Create descriptor heaps.
-	{
-		// Describe and create a render target view (RTV) descriptor heap.
-		D3D12_DESCRIPTOR_HEAP_DESC rtvHeapDesc = {};
-		rtvHeapDesc.NumDescriptors = FrameCount;
-		rtvHeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_RTV;
-		rtvHeapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_NONE;
-		ThrowIfFailed(m_device->CreateDescriptorHeap(&rtvHeapDesc, IID_PPV_ARGS(&m_rtvHeap)));
-
-		// Describe and create a shader resource view (SRV) and unordered
-		// access view (UAV) descriptor heap.
-		D3D12_DESCRIPTOR_HEAP_DESC srvUavHeapDesc = {};
-		srvUavHeapDesc.NumDescriptors = DescriptorCount;
-		srvUavHeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
-		srvUavHeapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
-		ThrowIfFailed(m_device->CreateDescriptorHeap(&srvUavHeapDesc, IID_PPV_ARGS(&m_srvUavHeap)));
-		NAME_D3D12_OBJECT(m_srvUavHeap);
-
-		m_rtvDescriptorSize = m_device->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_RTV);
-		m_srvUavDescriptorSize = m_device->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
-	}
-
-	// Create frame resources.
-	{
-		CD3DX12_CPU_DESCRIPTOR_HANDLE rtvHandle(m_rtvHeap->GetCPUDescriptorHandleForHeapStart());
-
-		// Create a RTV and a command allocator for each frame.
-		for (UINT n = 0; n < FrameCount; n++)
-		{
-			ThrowIfFailed(m_swapChain->GetBuffer(n, IID_PPV_ARGS(&m_renderTargets[n])));
-			m_device->CreateRenderTargetView(m_renderTargets[n].Get(), nullptr, rtvHandle);
-			rtvHandle.Offset(1, m_rtvDescriptorSize);
-
-			NAME_D3D12_OBJECT_INDEXED(m_renderTargets, n);
-
-			ThrowIfFailed(m_device->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT, IID_PPV_ARGS(&m_commandAllocators[n])));
-		}
-	}
-#endif
+	// create the command allocator object
+	//m_device->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT, IID_PPV_ARGS(&m_commandAllocators));
 }
 
 // Load the sample assets.
@@ -607,10 +579,10 @@ void VGRasterizer::LoadAssets()
 		// This is the highest version the sample supports. If CheckFeatureSupport succeeds, the HighestVersion returned will not be greater than this.
 		featureData.HighestVersion = D3D_ROOT_SIGNATURE_VERSION_1_1;
 
-		if (FAILED(m_device->CheckFeatureSupport(D3D12_FEATURE_ROOT_SIGNATURE, &featureData, sizeof(featureData))))
-		{
-			featureData.HighestVersion = D3D_ROOT_SIGNATURE_VERSION_1_0;
-		}
+		//if (FAILED(m_device->CheckFeatureSupport(D3D12_FEATURE_ROOT_SIGNATURE, &featureData, sizeof(featureData))))
+		//{
+		//	featureData.HighestVersion = D3D_ROOT_SIGNATURE_VERSION_1_0;
+		//}
 
 		// Graphics root signature.
 		{
@@ -627,7 +599,7 @@ void VGRasterizer::LoadAssets()
 			ComPtr<ID3DBlob> signature;
 			ComPtr<ID3DBlob> error;
 			ThrowIfFailed(D3DX12SerializeVersionedRootSignature(&rootSignatureDesc, featureData.HighestVersion, &signature, &error));
-			ThrowIfFailed(m_device->CreateRootSignature(0, signature->GetBufferPointer(), signature->GetBufferSize(), IID_PPV_ARGS(&m_rootSignature)));
+			//ThrowIfFailed(m_device->CreateRootSignature(0, signature->GetBufferPointer(), signature->GetBufferSize(), IID_PPV_ARGS(&m_rootSignature)));
 			NAME_D3D12_OBJECT(m_rootSignature);
 		}
 
@@ -648,7 +620,7 @@ void VGRasterizer::LoadAssets()
 			ComPtr<ID3DBlob> signature;
 			ComPtr<ID3DBlob> error;
 			ThrowIfFailed(D3DX12SerializeVersionedRootSignature(&computeRootSignatureDesc, featureData.HighestVersion, &signature, &error));
-			ThrowIfFailed(m_device->CreateRootSignature(0, signature->GetBufferPointer(), signature->GetBufferSize(), IID_PPV_ARGS(&m_computeRootSignature)));
+			//ThrowIfFailed(m_device->CreateRootSignature(0, signature->GetBufferPointer(), signature->GetBufferSize(), IID_PPV_ARGS(&m_computeRootSignature)));
 			NAME_D3D12_OBJECT(m_computeRootSignature);
 		}
 	}
@@ -720,7 +692,7 @@ void VGRasterizer::LoadAssets()
 	}
 
 	// Create the command list.
-	ThrowIfFailed(m_device->CreateCommandList(0, D3D12_COMMAND_LIST_TYPE_DIRECT, m_commandAllocators[m_frameIndex].Get(), m_pipelineState.Get(), IID_PPV_ARGS(&m_commandList)));
+	ThrowIfFailed(m_device->CreateCommandList(0, D3D12_COMMAND_LIST_TYPE_DIRECT, m_commandAllocators.Get(), m_pipelineState.Get(), IID_PPV_ARGS(&m_commandList)));
 	NAME_D3D12_OBJECT(m_commandList);
 
 	CreateVertexBuffer();
@@ -982,6 +954,74 @@ void VGRasterizer::CreateParticleBuffers()
 	}
 }
 
+// Fill the command list with all the render commands and dependent state.
+void VGRasterizer::PopulateCommandList()
+{
+
+	// Command list allocators can only be reset when the associated
+	// command lists have finished execution on the GPU; apps should use
+	// fences to determine GPU execution progress.
+	m_commandAllocators->Reset();
+
+	// However, when ExecuteCommandList() is called on a particular command
+	// list, that command list can then be reset at any time and must be before
+	// re-recording.
+	ThrowIfFailed(m_commandList->Reset(m_commandAllocators.Get(), m_pipelineState.Get()));
+
+	// Set necessary state.
+	m_commandList->SetPipelineState(m_pipelineState.Get());
+	m_commandList->SetGraphicsRootSignature(m_rootSignature.Get());
+
+	m_commandList->SetGraphicsRootConstantBufferView(GraphicsRootCBV, m_constantBufferGS->GetGPUVirtualAddress() + m_frameIndex * sizeof(ConstantBufferGS));
+
+	ID3D12DescriptorHeap* ppHeaps[] = { m_srvUavHeap.Get() };
+	m_commandList->SetDescriptorHeaps(_countof(ppHeaps), ppHeaps);
+
+	m_commandList->IASetVertexBuffers(0, 1, &m_vertexBufferView);
+	m_commandList->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_POINTLIST);
+	m_commandList->RSSetScissorRects(1, &m_scissorRect);
+
+	// Indicate that the back buffer will be used as a render target.
+	m_commandList->ResourceBarrier(1, &CD3DX12_RESOURCE_BARRIER::Transition(m_renderTargets[m_frameIndex].Get(), D3D12_RESOURCE_STATE_PRESENT, D3D12_RESOURCE_STATE_RENDER_TARGET));
+
+	CD3DX12_CPU_DESCRIPTOR_HANDLE rtvHandle(m_rtvHeap->GetCPUDescriptorHandleForHeapStart(), m_frameIndex, m_rtvDescriptorSize);
+	m_commandList->OMSetRenderTargets(1, &rtvHandle, FALSE, nullptr);
+
+	// Record commands.
+	const float clearColor[] = { 0.0f, 0.0f, 0.1f, 0.0f };
+	m_commandList->ClearRenderTargetView(rtvHandle, clearColor, 0, nullptr);
+
+	// Render the particles.
+	float viewportHeight = static_cast<float>(static_cast<UINT>(m_viewport.Height) / m_heightInstances);
+	float viewportWidth = static_cast<float>(static_cast<UINT>(m_viewport.Width) / m_widthInstances);
+	for (UINT n = 0; n < ThreadCount; n++)
+	{
+		const UINT srvIndex = n + (m_srvIndex[n] == 0 ? SrvParticlePosVelo0 : SrvParticlePosVelo1);
+
+		CD3DX12_VIEWPORT viewport(
+			(n % m_widthInstances) * viewportWidth,
+			(n / m_widthInstances) * viewportHeight,
+			viewportWidth,
+			viewportHeight);
+
+		m_commandList->RSSetViewports(1, &viewport);
+
+		CD3DX12_GPU_DESCRIPTOR_HANDLE srvHandle(m_srvUavHeap->GetGPUDescriptorHandleForHeapStart(), srvIndex, m_srvUavDescriptorSize);
+		m_commandList->SetGraphicsRootDescriptorTable(GraphicsRootSRVTable, srvHandle);
+
+		PIXBeginEvent(m_commandList.Get(), 0, L"Draw particles for thread %u", n);
+		m_commandList->DrawInstanced(ParticleCount, 1, 0, 0);
+		PIXEndEvent(m_commandList.Get());
+	}
+
+	m_commandList->RSSetViewports(1, &m_viewport);
+
+	// Indicate that the back buffer will now be used to present.
+	m_commandList->ResourceBarrier(1, &CD3DX12_RESOURCE_BARRIER::Transition(m_renderTargets[m_frameIndex].Get(), D3D12_RESOURCE_STATE_RENDER_TARGET, D3D12_RESOURCE_STATE_PRESENT));
+
+	ThrowIfFailed(m_commandList->Close());
+}
+
 void VGRasterizer::CreateAsyncContexts()
 {
 	for (UINT threadIndex = 0; threadIndex < ThreadCount; ++threadIndex)
@@ -1036,11 +1076,11 @@ void VGRasterizer::MoveToNextFrame()
 	m_frameFenceValues[m_frameIndex] = m_renderContextFenceValue;
 
 	// Signal and increment the fence value.
-	ThrowIfFailed(m_commandQueue->Signal(m_renderContextFence.Get(), m_renderContextFenceValue));
+	//ThrowIfFailed(m_commandQueue->Signal(m_renderContextFence.Get(), m_renderContextFenceValue));
 	m_renderContextFenceValue++;
 
 	// Update the frame index.
-	m_frameIndex = m_swapChain->GetCurrentBackBufferIndex();
+	//m_frameIndex = m_swapChain->GetCurrentBackBufferIndex();
 
 	// If the next frame is not ready to be rendered yet, wait until it is ready.
 	if (m_renderContextFence->GetCompletedValue() < m_frameFenceValues[m_frameIndex])
@@ -1188,8 +1228,11 @@ void VGRasterizer::onResize(int width, int height) {
 void VGRasterizer::loadMask() {
 	//HammersleyMaskHelper _helper;
 	//_helper.loadMask();
+	//m_hWnd = CreateWindowEx(0, L"Main", L"demo",
+	//	WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, NULL, NULL, NULL, NULL);
+
 	LoadPipeline();
-	//LoadAssets();
+	LoadAssets();
 	//_helper.getAMask(_mask.a, 32);
 	//_helper.getPMask(_mask.p, 32);
 }

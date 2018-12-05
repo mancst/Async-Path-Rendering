@@ -1,4 +1,4 @@
-f:\llj\code\asyn scanline\gpu-scanline\x64\release\vc141.pdb
+f:\llj\code\asyn scanline\gpu-scanline\x64\release\vc140.pdb
 f:\llj\code\asyn scanline\gpu-scanline\x64\release\vg_container.obj
 f:\llj\code\asyn scanline\gpu-scanline\x64\release\vg_main.obj
 f:\llj\code\asyn scanline\gpu-scanline\x64\release\svg_loader.obj
@@ -8,6 +8,7 @@ f:\llj\code\asyn scanline\gpu-scanline\x64\release\rvg_loader.obj
 f:\llj\code\asyn scanline\gpu-scanline\x64\release\rvg.obj
 f:\llj\code\asyn scanline\gpu-scanline\x64\release\ras_base.obj
 f:\llj\code\asyn scanline\gpu-scanline\x64\release\glpp.obj
+f:\llj\code\asyn scanline\gpu-scanline\x64\release\glgui.obj
 f:\llj\code\asyn scanline\gpu-scanline\x64\release\file.obj
 f:\llj\code\asyn scanline\gpu-scanline\x64\release\camera_controller_3d.obj
 f:\llj\code\asyn scanline\gpu-scanline\x64\release\camera_3d.obj
@@ -18,10 +19,10 @@ f:\llj\code\asyn scanline\gpu-scanline\x64\release\text_util.obj
 f:\llj\code\asyn scanline\gpu-scanline\x64\release\ras_cut_mask_comb_scanline.obj
 f:\llj\code\asyn scanline\gpu-scanline\x64\release\config.obj
 f:\llj\code\asyn scanline\gpu-scanline\x64\release\bezier_curve.obj
-f:\llj\code\asyn scanline\gpu-scanline\x64\release\vc140.pdb
-f:\llj\code\asyn scanline\gpu-scanline\x64\release\glgui.obj
 f:\llj\code\asyn scanline\gpu-scanline\x64\release\stb_impl.obj
 f:\llj\code\asyn scanline\gpu-scanline\x64\release\gl_4_5_compatibility.obj
+f:\llj\code\asyn scanline\gpu-scanline\x64\release\win32application.obj
+f:\llj\code\asyn scanline\gpu-scanline\x64\release\dxsample.obj
 f:\llj\code\asyn scanline\x64\release\gpu-scanline.exe
 f:\llj\code\asyn scanline\x64\release\gpu-scanline.ipdb
 f:\llj\code\asyn scanline\x64\release\gpu-scanline.iobj

@@ -11,9 +11,9 @@
 
 #pragma once
 
-#include "DXSample.h"
+#include "DXAsset.h"
 
-class DXSample;
+class DXAsset;
 
 class Win32Application
 {

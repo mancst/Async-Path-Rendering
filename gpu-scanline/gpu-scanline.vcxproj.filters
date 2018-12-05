@@ -139,10 +139,10 @@
     <ClCompile Include="src\text_util.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\d3d12\DXSample.cpp">
+    <ClCompile Include="src\d3d12\Win32Application.cpp">
       <Filter>src\d3d12</Filter>
     </ClCompile>
-    <ClCompile Include="src\d3d12\Win32Application.cpp">
+    <ClCompile Include="src\d3d12\DXAsset.cpp">
       <Filter>src\d3d12</Filter>
     </ClCompile>
   </ItemGroup>
@@ -453,9 +453,6 @@
     <ClInclude Include="src\d3d12\d3dx12.h">
       <Filter>src\d3d12</Filter>
     </ClInclude>
-    <ClInclude Include="src\d3d12\DXSample.h">
-      <Filter>src\d3d12</Filter>
-    </ClInclude>
     <ClInclude Include="src\d3d12\stdafx.h">
       <Filter>src\d3d12</Filter>
     </ClInclude>
@@ -474,7 +471,10 @@
     <ClInclude Include="src\d3d12\pix3Runtime\PIXEventsGenerated.h">
       <Filter>src\d3d12\pix3Runtime</Filter>
     </ClInclude>
-    <ClInclude Include="src\d3d12\DXSampleHelper.h">
+    <ClInclude Include="src\d3d12\DXAsset.h">
+      <Filter>src\d3d12</Filter>
+    </ClInclude>
+    <ClInclude Include="src\d3d12\DXDirector.h">
       <Filter>src\d3d12</Filter>
     </ClInclude>
   </ItemGroup>

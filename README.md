@@ -58,9 +58,8 @@ Works on SVG files with a subset of features (see the paper for details).
 
 ## Driver Issue
 
-At the time we release the code, we are using driver 368.81, and everything runs well.
+At the time we release the code, we are using driver 416.34, and everything runs well.
 
-We found the behavior of gl_SampleMask in GLSL has changed since NVIDIA driver version 368.22.
-While the old behaviour was inconsistent with OpenGL standard, we assume it was a driver bug,
-or a result of incorrect graphics card configuration.
-Using drivers earlier than this version may get incorrect rendering results.
+We have found that the behavior of initial setup for AsyncComputeThread in D3D12 have changed since the NVIDIA driver version 387.92. 
+While the Multi-threaded access to graphic memory exceeds normal expectancy, we assume it was a driver defect, or a result of incorrect graphics card configuration.
+Using drivers earlier than this version may not be able to get results which match expectations.

@@ -15,7 +15,7 @@
 HWND Win32Application::m_hwnd = nullptr;
 
 /*
-int Win32Application::Run(DXSample* pSample, HINSTANCE hInstance, int nCmdShow)
+int Win32Application::Run(DXAsset* pSample, HINSTANCE hInstance, int nCmdShow)
 {
     // Parse the command line parameters
     int argc;

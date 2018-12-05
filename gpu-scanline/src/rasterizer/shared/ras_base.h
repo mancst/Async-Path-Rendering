@@ -18,7 +18,7 @@
 #include "ras_pipeline_mode.h"
 
 #include "d3d12/stdafx.h"
-#include "d3d12/DXSample.h"
+#include "d3d12/DXAsset.h"
 
 using Microsoft::WRL::ComPtr;
 
@@ -137,7 +137,7 @@ struct ElementNumber {
 	int span;
 };
 
-class VGRasterizer : public DXSample {
+class VGRasterizer : public DXAsset {
 
 public:
 	VGRasterizer();
@@ -318,12 +318,17 @@ protected:
 	std::vector<int> _gradient_ramp;
 	std::vector<int> _gradient_table;
 
+	HWND m_hWnd;
+
 	int _fps = 0;
 
 	static const UINT FrameCount = 2;
 	static const UINT ThreadCount = 1;
 	static const float ParticleSpread;
 	static const UINT ParticleCount = 10000;        // The number of particles in the n-body simulation.
+
+	static const UINT mIndexLastSwapBuf = 0;
+	static const UINT cNumSwapBufs = 2;
 
 	// -------- -------- -------- --------
 	// for ink & text
@@ -389,11 +394,11 @@ protected:
 	// Pipeline objects.
 	CD3DX12_VIEWPORT m_viewport;
 	CD3DX12_RECT m_scissorRect;
-	ComPtr<IDXGISwapChain3> m_swapChain;
+	ComPtr<IDXGISwapChain> m_swapChain;
 	ComPtr<ID3D12Device> m_device;
 	ComPtr<ID3D12Resource> m_renderTargets[FrameCount];
 	UINT m_frameIndex;
-	ComPtr<ID3D12CommandAllocator> m_commandAllocators[FrameCount];
+	ComPtr<ID3D12CommandAllocator> m_commandAllocators;
 	ComPtr<ID3D12CommandQueue> m_commandQueue;
 	ComPtr<ID3D12RootSignature> m_rootSignature;
 	ComPtr<ID3D12RootSignature> m_computeRootSignature;

@@ -191,7 +191,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\bezier_curve.cpp" />
-    <ClCompile Include="src\d3d12\DXSample.cpp" />
+    <ClCompile Include="src\d3d12\DXAsset.cpp" />
     <ClCompile Include="src\d3d12\Win32Application.cpp" />
     <ClCompile Include="src\mochimazui\config.cpp" />
     <ClCompile Include="src\rasterizer\R_cut_A_mask_comb_scanline\ras_cut_mask_comb_scanline.cpp" />
@@ -224,8 +224,8 @@
     <ClInclude Include="src\bezier_curve_type.h" />
     <ClInclude Include="src\bounding_box.h" />
     <ClInclude Include="src\d3d12\d3dx12.h" />
-    <ClInclude Include="src\d3d12\DXSample.h" />
-    <ClInclude Include="src\d3d12\DXSampleHelper.h" />
+    <ClInclude Include="src\d3d12\DXAsset.h" />
+    <ClInclude Include="src\d3d12\DXDirector.h" />
     <ClInclude Include="src\d3d12\pix3Runtime\pix3.h" />
     <ClInclude Include="src\d3d12\pix3Runtime\pix3_win.h" />
     <ClInclude Include="src\d3d12\pix3Runtime\PIXEventsCommon.h" />

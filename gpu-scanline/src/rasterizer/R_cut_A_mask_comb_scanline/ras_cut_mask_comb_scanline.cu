@@ -1481,38 +1481,8 @@ void VGRasterizer::initQMMaskTable() {
 }
 
 void VGRasterizer::rasterizeImpl() {
-	/*
-	for (UINT threadIndex = 0; threadIndex < ThreadCount; ++threadIndex)
-	{
-		// Create compute resources.
-		D3D12_COMMAND_QUEUE_DESC queueDesc = { D3D12_COMMAND_LIST_TYPE_COMPUTE, 0, D3D12_COMMAND_QUEUE_FLAG_NONE };
-		ThrowIfFailed(m_device->CreateCommandQueue(&queueDesc, IID_PPV_ARGS(&m_computeCommandQueue[threadIndex])));
-		ThrowIfFailed(m_device->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_COMPUTE, IID_PPV_ARGS(&m_computeAllocator[threadIndex])));
-		ThrowIfFailed(m_device->CreateCommandList(0, D3D12_COMMAND_LIST_TYPE_COMPUTE, m_computeAllocator[threadIndex].Get(), nullptr, IID_PPV_ARGS(&m_computeCommandList[threadIndex])));
-		ThrowIfFailed(m_device->CreateFence(0, D3D12_FENCE_FLAG_SHARED, IID_PPV_ARGS(&m_threadFences[threadIndex])));
-		m_threadFenceEvents[threadIndex] = CreateEvent(nullptr, FALSE, FALSE, nullptr);
-		if (m_threadFenceEvents[threadIndex] == nullptr)
-		{
-			ThrowIfFailed(HRESULT_FROM_WIN32(GetLastError()));
-		}
-
-		m_threadData[threadIndex].pContext = this;
-		m_threadData[threadIndex].threadIndex = threadIndex;
-
-		m_threadHandles[threadIndex] = CreateThread(
-			nullptr,
-			0,
-			reinterpret_cast<LPTHREAD_START_ROUTINE>(ThreadProc),
-			reinterpret_cast<void*>(&m_threadData[threadIndex]),
-			CREATE_SUSPENDED,
-			nullptr);
-
-		ResumeThread(m_threadHandles[threadIndex]);
-	}
-	*/
 
 	rasterizeImpl<VG_RASTERIZER_BIG_FRAGMENT_SIZE>();
-
 
 }
 
