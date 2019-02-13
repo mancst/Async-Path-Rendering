@@ -2,7 +2,7 @@
 
 ## Pre-built Binary 
 
-./x64/release/gpu-scanline.exe. Tested on 64 bit Windows 10. Copy to ./working_directory to run. <br/>
+./x64/release/async-rendering.exe. Tested on 64 bit Windows 10. Copy to ./working_directory to run. <br/>
 Built with Visual Studio 2017 and CUDA 9.2. <br/>
 Requires a NVIDIA graphics card with CUDA sm_50 and DirectX 12 support.
 
